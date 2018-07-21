@@ -1,0 +1,12 @@
+C:\Users\catab\Desktop\Tanks\.mono\temp\bin\Debug\Tanks.dll
+C:\Users\catab\Desktop\Tanks\.mono\temp\bin\Debug\Tanks.pdb
+C:\Users\catab\Desktop\Tanks\.mono\temp\obj\Debug\Tanks.csprojResolveAssemblyReference.cache
+C:\Users\catab\Desktop\Tanks\.mono\temp\obj\Debug\Tanks.csproj.CoreCompileInputs.cache
+C:\Users\catab\Desktop\Tanks\.mono\temp\obj\Debug\Tanks.dll
+C:\Users\catab\Desktop\Tanks\.mono\temp\obj\Debug\Tanks.pdb
+C:\Users\catab\Desktop\Tests\TanksUdpTest\.mono\temp\bin\Debug\Tanks.dll
+C:\Users\catab\Desktop\Tests\TanksUdpTest\.mono\temp\bin\Debug\Tanks.pdb
+C:\Users\catab\Desktop\Tests\TanksUdpTest\.mono\temp\obj\Debug\Tanks.csprojResolveAssemblyReference.cache
+C:\Users\catab\Desktop\Tests\TanksUdpTest\.mono\temp\obj\Debug\Tanks.csproj.CoreCompileInputs.cache
+C:\Users\catab\Desktop\Tests\TanksUdpTest\.mono\temp\obj\Debug\Tanks.dll
+C:\Users\catab\Desktop\Tests\TanksUdpTest\.mono\temp\obj\Debug\Tanks.pdb

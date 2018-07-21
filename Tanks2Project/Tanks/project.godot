@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=3
+
+[application]
+
+config/name="Tanks"
+run/main_scene="res://scenes/SplashScreen.tscn"
+config/icon="res://Icon.png"
+
+[autoload]
+
+global="*res://scripts/global.cs"
+
+[display]
+
+window/size/always_on_top=true
+window/stretch/mode="viewport"
+window/stretch/shrink="1"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{805B23C4-26AE-4271-9D3E-33F7F6CCB68B}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TanksController</RootNamespace>
+    <AssemblyName>TanksController</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidSupportedAbis>armeabi%3barmeabi-v7a%3bx86</AndroidSupportedAbis>
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidUseLatestPlatformSdk />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ANDROID; XNA4; MONOGAME; FRB_XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;ANDROID; XNA4; MONOGAME; FRB_XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlatRedBall.Forms.Android">
+      <HintPath>Libraries\Android\Debug\FlatRedBall.Forms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="GumCoreAndroid">
+      <HintPath>Libraries\Android\Debug\GumCoreAndroid.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Android\Debug\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="OpenTK-1.0" />
+    <Reference Include="StateInterpolation.Android">
+      <HintPath>Libraries\Android\Debug\StateInterpolation.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Mono.Android">
+      <HintPath>Libraries\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatRedBallAndroid">
+      <HintPath>Libraries\Android\Debug\FlatRedBallAndroid.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activity1.cs" />
+    <Compile Include="Entities\Button.cs" />
+    <Compile Include="Entities\Button.Generated.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ComputerName.cs" />
+    <Compile Include="Entities\ComputerName.Generated.cs">
+      <DependentUpon>ComputerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DeleteKey.cs" />
+    <Compile Include="Entities\DeleteKey.Generated.cs">
+      <DependentUpon>DeleteKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Finger.cs" />
+    <Compile Include="Entities\Finger.Generated.cs">
+      <DependentUpon>Finger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GoButton.cs" />
+    <Compile Include="Entities\GoButton.Generated.cs">
+      <DependentUpon>GoButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\JoyStickBase.cs" />
+    <Compile Include="Entities\JoyStickBase.Generated.cs">
+      <DependentUpon>JoyStickBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\JoyStickStick.cs" />
+    <Compile Include="Entities\JoyStickStick.Generated.cs">
+      <DependentUpon>JoyStickStick.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Keyboard.cs" />
+    <Compile Include="Entities\Keyboard.Generated.cs">
+      <DependentUpon>Keyboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\KeyboardKey.cs" />
+    <Compile Include="Entities\KeyboardKey.Generated.cs">
+      <DependentUpon>KeyboardKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TextBox.cs" />
+    <Compile Include="Entities\TextBox.Generated.cs">
+      <DependentUpon>TextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factories\ComputerNameFactory.Generated.cs" />
+    <Compile Include="FileAliases.Generated.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="GlobalContent.Generated.cs" />
+    <Compile Include="Performance\IEntityFactory.Generated.cs" />
+    <Compile Include="Performance\PoolList.Generated.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\ControlScreen.cs" />
+    <Compile Include="Screens\ControlScreen.Generated.cs">
+      <DependentUpon>ControlScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\NameTankScreen.cs" />
+    <Compile Include="Screens\NameTankScreen.Generated.cs">
+      <DependentUpon>NameTankScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SelectTankScreen.cs" />
+    <Compile Include="Screens\SelectTankScreen.Generated.cs">
+      <DependentUpon>SelectTankScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\StartScreen.cs" />
+    <Compile Include="Screens\StartScreen.Generated.cs">
+      <DependentUpon>StartScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\CameraSetup.cs" />
+    <Compile Include="SpecialObjects\GlobalData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Libraries\Android\Debug\FlatRedBallAndroid.dll" />
+    <None Include="Libraries\Android\Debug\MonoGame.Framework.dll" />
+    <None Include="Libraries\Android\Debug\OpenTK.dll" />
+    <None Include="Resources\AboutResources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\content\defaultfonttexture.png" />
+    <AndroidAsset Include="Assets\content\entities\joystick\joyback.png">
+      <Name>JoyBack</Name>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\entities\joystick\joystick.png">
+      <Name>Joystick</Name>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\entities\keyboard\kbdback.png">
+      <Name>KBDBack</Name>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\entities\keyboard\letterbutton.png">
+      <Name>LetterButton</Name>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\screens\startscreen\btnnormal.png">
+      <Name>btnNormal</Name>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\screens\startscreen\btnpressed.png">
+      <Name>btnPressed</Name>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\screens\startscreen\font_0.png">
+      <Name>Font_0</Name>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\screens\startscreen\revengeance.fnt">
+      <Name>Revengeance</Name>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\screens\startscreen\tank.png">
+      <Name>tank</Name>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\screens\startscreen\title.png">
+      <Name>Title</Name>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\content\redball.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+    <AndroidResource Include="Resources\Drawable\Splash.png" />
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+    <AndroidResource Include="Resources\Values\Styles.xml" />
+  </ItemGroup>
+</Project>

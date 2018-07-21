@@ -1,0 +1,89 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="Map" type="Node" index="0"]
+
+[node name="Walls" type="Node" parent="." index="0"]
+
+[node name="Bounds" type="Node" parent="Walls" index="0"]
+
+[node name="LeftBoundWall" type="StaticBody2D" parent="Walls/Bounds" index="0"]
+
+editor/display_folded = true
+position = Vector2( -5, 300 )
+scale = Vector2( 0.15625, 9.375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bounds/LeftBoundWall" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TopBoundWall" type="StaticBody2D" parent="Walls/Bounds" index="1"]
+
+editor/display_folded = true
+position = Vector2( 512, -4.98065 )
+scale = Vector2( 16.3129, 0.156855 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bounds/TopBoundWall" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BottomBoundWall" type="StaticBody2D" parent="Walls/Bounds" index="2"]
+
+editor/display_folded = true
+position = Vector2( 512, 605 )
+scale = Vector2( 16.3129, 0.156855 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bounds/BottomBoundWall" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="RightBoundWall" type="StaticBody2D" parent="Walls/Bounds" index="3"]
+
+editor/display_folded = true
+position = Vector2( 1029, 300 )
+scale = Vector2( 0.15625, 9.375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bounds/RightBoundWall" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+

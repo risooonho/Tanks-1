@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/GameScene.cs" type="Script" id=1]
+[ext_resource path="res://scenes/Scores.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/UdpListener.cs" type="Script" id=4]
+
+[node name="GameScene" type="Node" index="0"]
+
+script = ExtResource( 1 )
+PlayerSpawnMargin = 20
+
+[node name="Scores" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="PauseMenu" parent="." index="1" instance=ExtResource( 3 )]
+
+margin_top = -353.0
+margin_bottom = -353.0
+
+[node name="UdpListener" type="Node" parent="." index="2"]
+
+script = ExtResource( 4 )
+
+
+[editable path="PauseMenu"]
