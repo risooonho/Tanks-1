@@ -50,6 +50,8 @@ public class SelectTanks : Node
     {
         global = (global)GetNode("/root/global");
 
+        ((AudioStreamPlayer2D)GetNode("Sounds/AudioStreamPlayer2D")).Play(0);
+
         Tank1Rect = (TextureRect)GetNode("GUI/Player1Label/Tank/TextureRect");
         Tank1Description = (RichTextLabel)GetNode("GUI/Player1Label/Tank/Description");
         Tank2Rect = (TextureRect)GetNode("GUI/Player2Label/Tank/TextureRect");
