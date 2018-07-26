@@ -229,6 +229,7 @@ script = ExtResource( 1 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 
+position = Vector2( 512, 300 )
 stream = ExtResource( 2 )
 volume_db = 10.0
 pitch_scale = 1.0
@@ -237,6 +238,7 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 [node name="Background" type="Sprite" parent="." index="1"]
 
