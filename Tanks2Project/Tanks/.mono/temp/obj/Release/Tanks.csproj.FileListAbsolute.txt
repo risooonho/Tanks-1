@@ -4,3 +4,9 @@ C:\Users\catab\Desktop\Tanks\.mono\temp\obj\Release\Tanks.csprojResolveAssemblyR
 C:\Users\catab\Desktop\Tanks\.mono\temp\obj\Release\Tanks.csproj.CoreCompileInputs.cache
 C:\Users\catab\Desktop\Tanks\.mono\temp\obj\Release\Tanks.dll
 C:\Users\catab\Desktop\Tanks\.mono\temp\obj\Release\Tanks.pdb
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\bin\Release\Tanks.dll
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\bin\Release\Tanks.pdb
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\obj\Release\Tanks.csprojResolveAssemblyReference.cache
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\obj\Release\Tanks.csproj.CoreCompileInputs.cache
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\obj\Release\Tanks.dll
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\obj\Release\Tanks.pdb
