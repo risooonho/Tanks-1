@@ -869,7 +869,7 @@ content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[node name="SplashScreen" type="Node" index="0"]
+[node name="SplashScreen" type="Node"]
 
 script = ExtResource( 1 )
 

@@ -29,6 +29,9 @@ public class SplashScreen : Node
             ((Particles2D)(GetNode("BrownTankFire/BrownTankFire3"))).Preprocess = 2;
             AP.CurrentAnimation = "MoveShoot"; AP.Advance(3.5f);
             AP.CurrentAnimation = "BringInGUI"; AP.Advance(1);
+            ((AudioStreamPlayer2D)(GetNode("Sounds/Music"))).Stop();
+            ((AudioStreamPlayer2D)(GetNode("Sounds/ExplosionSound"))).Stop();
+            ((AudioStreamPlayer2D)(GetNode("Sounds/Music"))).Play(global.SplashAudioPosition);
         }
 
         PressAnyKey = (Label)GetNode("GUI/Label");
@@ -119,6 +122,7 @@ public class SplashScreen : Node
     {
         global.NumberOfPlayers = PlayOptionButton.GetSelectedId();
         global.GameStarted = true;
+        global.SplashAudioPosition = ((AudioStreamPlayer2D)(GetNode("Sounds/Music"))).GetPlaybackPosition();
         global.GotoScene("res://scenes/SelectTanks.tscn");
     }
 

@@ -31,7 +31,7 @@ public class PauseMenu : Control
     {
         GetTree().SetPause(false);
         CurrentListener.Dispose();
-
+        global.SplashAudioPosition = 0;
         global.GotoScene("res://scenes/SplashScreen.tscn");
     }
 

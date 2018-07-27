@@ -51,6 +51,7 @@ public class SelectTanks : Node
         global = (global)GetNode("/root/global");
 
         ((AudioStreamPlayer2D)GetNode("Sounds/AudioStreamPlayer2D")).Play(0);
+        ((AudioStreamPlayer2D)GetNode("Sounds/Music")).Play(global.SplashAudioPosition);
 
         Tank1Rect = (TextureRect)GetNode("GUI/Player1Label/Tank/TextureRect");
         Tank1Description = (RichTextLabel)GetNode("GUI/Player1Label/Tank/Description");
@@ -67,6 +68,7 @@ public class SelectTanks : Node
 
     private void _OnBackButtonPressed()
     {
+        global.SplashAudioPosition = ((AudioStreamPlayer2D)GetNode("Sounds/Music")).GetPlaybackPosition();
         global.GotoScene("res://scenes/SplashScreen.tscn");
     }
 

@@ -16,6 +16,8 @@ namespace Tanks
 
         public bool GameStarted = false;
 
+        public float SplashAudioPosition;
+
         public List<PackedScene> TanksList = new List<PackedScene>();
         public List<string> TanksNames = new List<string>();
         public Dictionary<string, Node> SelectedTanks;
@@ -25,7 +27,6 @@ namespace Tanks
 
         public override void _Ready()
         {
-            //GetTree().SetAutoAcceptQuit(false);
             try
             {
                 LoadSettings();
@@ -151,6 +152,12 @@ namespace Tanks
                             ok = true;
                     Filename = DIR.GetNext();
                 }
+            }
+            else
+            {
+                DIR = new Directory();
+                DIR.Open(PATH.Substring(0, PATH.LastIndexOf("/") + 1));
+                DIR.MakeDir(PATH.Substring(PATH.LastIndexOf("/") + 1));
             }
             return ok;
         }

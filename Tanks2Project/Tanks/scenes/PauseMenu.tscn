@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/PauseMenu.cs" type="Script" id=1]
-[ext_resource path="res://assets/images/btnNormal.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/btnPressed.png" type="Texture" id=3]
-[ext_resource path="res://assets/images/btnHover.png" type="Texture" id=4]
-[ext_resource path="res://assets/images/ToggleOff.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/ToggleOn.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/SplashScreen/Smoke.png" type="Texture" id=7]
+[ext_resource path="res://assets/sounds/menu_fall.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/images/btnNormal.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/btnPressed.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/btnHover.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/ToggleOff.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/ToggleOn.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/SplashScreen/Smoke.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -117,6 +118,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false, true, false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sounds/Fall:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
+}
 
 [sub_resource type="DynamicFontData" id=3]
 
@@ -189,13 +202,15 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Damping", "Initial Velocity" ]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -353.0
+margin_bottom = -353.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -205,7 +220,20 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="Sounds" type="Node" parent="." index="0"]
+
+[node name="Fall" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
 autoplay = "BringInGUI"
@@ -216,7 +244,7 @@ anims/Hide = SubResource( 1 )
 anims/Show = SubResource( 2 )
 blend_times = [  ]
 
-[node name="ResumeButton" type="TextureButton" parent="." index="1"]
+[node name="ResumeButton" type="TextureButton" parent="." index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -238,9 +266,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 3 )
-texture_hover = ExtResource( 4 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Hint", "Mouse", "Rect", "Textures" ]
 __meta__ = {
 "_edit_group_": true
@@ -271,7 +299,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Grow Direction", "Hint", "Mouse", "Rect", "Size Flags", "Visibility", "custom_fonts" ]
 
-[node name="MainMenuButton" type="TextureButton" parent="." index="2"]
+[node name="MainMenuButton" type="TextureButton" parent="." index="3"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -293,9 +321,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 3 )
-texture_hover = ExtResource( 4 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Hint", "Mouse", "Rect", "Textures" ]
 __meta__ = {
 "_edit_group_": true
@@ -326,7 +354,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Grow Direction", "Hint", "Mouse", "Rect", "Size Flags", "Visibility", "custom_fonts" ]
 
-[node name="FullScreenCheck" type="CheckButton" parent="." index="3"]
+[node name="FullScreenCheck" type="CheckButton" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -344,8 +372,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_icons/off = ExtResource( 5 )
-custom_icons/on = ExtResource( 6 )
+custom_icons/off = ExtResource( 6 )
+custom_icons/on = ExtResource( 7 )
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
@@ -379,7 +407,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
-[node name="Dust" type="Node" parent="." index="4"]
+[node name="Dust" type="Node" parent="." index="5"]
 
 [node name="Dust1" type="Particles2D" parent="Dust" index="0"]
 
@@ -399,7 +427,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 8 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -423,7 +451,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 8 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -447,7 +475,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 8 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 normal_map = null
 h_frames = 1
 v_frames = 1
