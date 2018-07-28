@@ -16,3 +16,9 @@ C:\Users\catab\Desktop\Tanks2Project\Tanks\.mono\temp\obj\Tools\Tanks.csprojReso
 C:\Users\catab\Desktop\Tanks2Project\Tanks\.mono\temp\obj\Tools\Tanks.csproj.CoreCompileInputs.cache
 C:\Users\catab\Desktop\Tanks2Project\Tanks\.mono\temp\obj\Tools\Tanks.dll
 C:\Users\catab\Desktop\Tanks2Project\Tanks\.mono\temp\obj\Tools\Tanks.pdb
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\bin\Tools\Tanks.dll
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\bin\Tools\Tanks.pdb
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\obj\Tools\Tanks.csprojResolveAssemblyReference.cache
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\obj\Tools\Tanks.csproj.CoreCompileInputs.cache
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\obj\Tools\Tanks.dll
+C:\Users\catab\Documents\GitHub\Tanks\Tanks2Project\Tanks\.mono\temp\obj\Tools\Tanks.pdb

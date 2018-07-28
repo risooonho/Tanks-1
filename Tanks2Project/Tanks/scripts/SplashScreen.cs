@@ -1,3 +1,5 @@
+// Starting screen: animations, music, menu
+
 using Godot;
 using System;
 using Tanks;
@@ -15,9 +17,9 @@ public class SplashScreen : Node
         global = (global)GetNode("/root/global");
 
         AP = (AnimationPlayer)GetNode("AnimationPlayer");
-        if (!global.GameStarted)
+        if (!global.GameStarted) // if just opened game
             AP.Play("MoveShoot");
-        else
+        else // if came back from PauseMenu/SelectTanks
         {
             ((CanvasItem)(GetNode("BlueTank/Explosion"))).Visible = false;
             ((CanvasItem)(GetNode("BlueTank/Exhaust"))).Visible = false;
@@ -34,14 +36,14 @@ public class SplashScreen : Node
             ((AudioStreamPlayer2D)(GetNode("Sounds/Music"))).Play(global.SplashAudioPosition);
         }
 
-        PressAnyKey = (Label)GetNode("GUI/Label");
+        PressAnyKey = (Label)GetNode("GUI/Label"); // Flashing "Press any key"
 
         AllowCheck = (CheckButton)GetNode("GUI/Settings/AllowCheck");
         FullScreenCheck = (CheckButton)GetNode("GUI/Settings/FullScreenCheck");
 
-        PlayOptionButton = (OptionButton)GetNode("GUI/PlayOptions/OptionButton");
+        PlayOptionButton = (OptionButton)GetNode("GUI/PlayOptions/OptionButton"); //"PLAY" button; opens kbd players number selection and GoButton
 
-        if (global.AllowMobileControllers)
+        if (global.AllowMobileControllers) //set toggles according to data loaded by global
         {
             AllowCheck.SetPressed(true);
             _OnAllowCheckToggled(true);
@@ -57,7 +59,7 @@ public class SplashScreen : Node
 
     public override void _Input(InputEvent @event)
     {
-        if (AP.CurrentAnimation == "FlashLabel")
+        if (AP.CurrentAnimation == "FlashLabel") //"Press Any Key" accepts anything that is not mouse
             if (!(@event is InputEventMouse))
             {
                 PressAnyKey.Visible = false;
@@ -69,16 +71,14 @@ public class SplashScreen : Node
 
     private void _OnAnimationFinished(String anim_name)
     {
-        switch (anim_name)
+        if (anim_name == "MoveShoot")
         {
-            case "MoveShoot":
-                if(!global.GameStarted)
-                    AP.SetCurrentAnimation("FlashLabel");
-                break;
+            if (!global.GameStarted)
+                AP.SetCurrentAnimation("FlashLabel");
         }
     }
 
-    private void _OnQuitButtonPressed()
+    private void _OnQuitButtonPressed() // only Quit button saves settings
     {
         global.SaveSettings();
         GetTree().Quit();
@@ -118,7 +118,7 @@ public class SplashScreen : Node
         PlayOptionButton.AddItem("2", 2);
     }
 
-    private void _OnGoButtonPressed()
+    private void _OnGoButtonPressed() // Go to SelectTanks
     {
         global.NumberOfPlayers = PlayOptionButton.GetSelectedId();
         global.GameStarted = true;

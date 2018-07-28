@@ -1,3 +1,5 @@
+//Actual game screen
+
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ public class GameScene : Node
 {
 
     [Export]
-    int PlayerSpawnMargin = 20;
+    int PlayerSpawnMargin = 20; // margin in pixels at the border of the screen where players won't spawn
 
     public global global;
     Dictionary<string, int> PlayerScores;
@@ -34,8 +36,8 @@ public class GameScene : Node
             Scores.Show();
         }
         else Scores.Empty();
-        ChangeMap();
-        foreach (KeyValuePair<string, Node> Player in global.SelectedTanks)
+        ChangeMap();                                                    // Go to the first map
+        foreach (KeyValuePair<string, Node> Player in global.SelectedTanks)// Create players, which are destroyed only when they leave
         {
             PlayerScores.Add(Player.Key, 0);
             AlivePlayers.Add(Player.Key);
@@ -50,15 +52,15 @@ public class GameScene : Node
         }
         if (global.AllowMobileControllers)
         {
-            Listener = (UdpListener)GetNode("UdpListener");
-            Listener.Start();
+            Listener = (UdpListener)GetNode("UdpListener"); 
+            Listener.Start();// Start listening for requests/controls on port 11000
         }
     }
 
     public override void _Process(float delta)
     {
         base._Process(delta);
-        if (global.NumberOfPlayers == 1)
+        if (global.NumberOfPlayers == 1)// if there is only one player, make him invincible
         {
             if (AlivePlayers.Count == 0)
             {
@@ -69,7 +71,7 @@ public class GameScene : Node
             }
 
         }
-        else if (global.NumberOfPlayers >= 2)
+        else if (global.NumberOfPlayers >= 2)// else get the winner
         {
             if (AlivePlayers.Count == 1)
             {
@@ -86,24 +88,24 @@ public class GameScene : Node
     {
         if (@event is InputEventKey IEV)
             if (IEV.Scancode == (int)KeyList.Escape)
-                Menu.Show();
+                Menu.Show();// show pause menu at Esc press
     }
 
     private void ChangeLevel()
     {
         var Bullets = GetTree().GetNodesInGroup("Bullets");
-        foreach (Node Bullet in Bullets)
+        foreach (Node Bullet in Bullets)// destroy all bullets
             Bullet.QueueFree();
 
         if (AlivePlayers.Count != 0)
         {
-            PlayerScores[AlivePlayers[0]]++;
+            PlayerScores[AlivePlayers[0]]++; //increase  winner's score
             GD.Print(AlivePlayers[0] + " won");
             ((Node2D)(global.SelectedTanks[AlivePlayers[0]])).SetPosition(GetRandomPosition());
         }
         else
         {
-            PlayerScores[DestroyedPlayers[DestroyedPlayers.Count - 1]]++;
+            PlayerScores[DestroyedPlayers[DestroyedPlayers.Count - 1]]++; //draw -> last 2 destroyed get their score increased
             PlayerScores[DestroyedPlayers[DestroyedPlayers.Count - 2]]++;
             GD.Print("Draw between " + DestroyedPlayers[DestroyedPlayers.Count - 2] + " and " + DestroyedPlayers[DestroyedPlayers.Count - 1]);
         }
@@ -125,7 +127,7 @@ public class GameScene : Node
 
     private void ChangeMap()
     {
-        CurrentMap = global.MapsList[CurrentMapID++].Instance();
+        CurrentMap = global.MapsList[CurrentMapID++].Instance();//instance the next map and add it as a child; map and tanks are siblings
         AddChild(CurrentMap);
         if (CurrentMapID >= global.MapsList.Count) CurrentMapID = 0;
     }
@@ -140,16 +142,16 @@ public class GameScene : Node
             (float)(PlayerSpawnMargin + rnd.NextDouble() * Max.y));
     }
 
-    private float GetRandomRotation() => (float)(rnd.NextDouble() * 6.28);
+    private float GetRandomRotation() => (float)(rnd.NextDouble() * 6.28);// rotation in radians
 
-    private void TankDestroyed(string name)
+    private void TankDestroyed(string name)//run when a "public_destroy" signal occurs
     {
         GD.Print(name + " destroyed");
         AlivePlayers.Remove(name);
         DestroyedPlayers.Add(name);
     }
 
-    public void AddTank(string Name, int SelectedIndex)
+    public void AddTank(string Name, int SelectedIndex)//currently only mobile-controlled tanks
     {
         Node NewTank = global.TanksList[SelectedIndex].Instance();
         global.SelectedTanks.Add(Name, NewTank);
@@ -174,7 +176,7 @@ public class GameScene : Node
         AddChild(NewTank);
     }
 
-    public void RemoveTank(string Name)
+    public void RemoveTank(string Name)//currently only mobile-controlled tanks
     {
         if (AlivePlayers.Contains(Name)) AlivePlayers.Remove(Name);
         else DestroyedPlayers.Remove(Name);

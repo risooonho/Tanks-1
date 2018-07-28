@@ -1,4 +1,6 @@
-﻿using Godot;
+﻿//UdpListener used to manage requests/controls, advertise on local network
+
+using Godot;
 using System;
 using System.Collections.Generic;
 using System.Text;

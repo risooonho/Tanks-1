@@ -1,3 +1,5 @@
+//Pause menu shown at Esc key press
+
 using Godot;
 using System;
 using Tanks;
@@ -31,11 +33,11 @@ public class PauseMenu : Control
     {
         GetTree().SetPause(false);
         CurrentListener.Dispose();
-        global.SplashAudioPosition = 0;
+        global.SplashAudioPosition = 0;// when going to main menu from the game, music should restart
         global.GotoScene("res://scenes/SplashScreen.tscn");
     }
 
-    new public void Show()
+    new public void Show() // Do not control visibility; instead, move into/out of the screen
     {
         AnimationPlayer.Play("Show");
         GetTree().SetPause(true);
