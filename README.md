@@ -3,9 +3,10 @@ A top-down tank shooter game made using the Godot engine.
 
 **How to play**: 
 
-On Windows, go to %appdata%/Godot/app_userdata/Tanks and create 2 folders named Tanks and Maps; these two will contain all .pck mods.
-
-Use the exe in the Runnable folder.
+On Windows, open the executable (should be in the same place as the .pck).
+An error will occur: click on one of the buttons.
+In the Maps folder, install your Map.pck files.
+In the parent/Tanks folder, install BaseTank.pck and other Tank.pck files.
 
 **Controllers**: 
 
