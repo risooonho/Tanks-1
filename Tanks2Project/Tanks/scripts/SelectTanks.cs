@@ -1,5 +1,3 @@
-//Keyboard players name/tank selection screen
-
 using Godot;
 using System;
 using Tanks;
@@ -13,7 +11,7 @@ public class SelectTanks : Node
     RichTextLabel Tank1Description, Tank2Description;
 
     int mT1Idx = 0;
-    int Tank1Idx // property that modifies the tank texture displayed
+    int Tank1Idx
     {
         get => mT1Idx;
         set
@@ -24,7 +22,7 @@ public class SelectTanks : Node
                 mT1Idx = 0;
             else mT1Idx = value;
             var Tank = global.TanksList[mT1Idx].Instance();
-            Tank1Rect.Texture = ((Sprite)(Tank.GetNode("Sprite"))).Texture; // instance tank to get its texture and description, then clear from memory
+            Tank1Rect.Texture = ((Sprite)(Tank.GetNode("Sprite"))).Texture;
             Tank1Description.Text = ((RichTextLabel)(Tank.GetNode("Description"))).Text;
             Tank.QueueFree();
         }
@@ -52,11 +50,11 @@ public class SelectTanks : Node
     {
         global = (global)GetNode("/root/global");
 
-        ((AudioStreamPlayer2D)GetNode("Sounds/AudioStreamPlayer2D")).Play(0); // a gun reload sound
-        ((AudioStreamPlayer2D)GetNode("Sounds/Music")).Play(global.SplashAudioPosition); // continue music from SplashScreen
+        ((AudioStreamPlayer2D)GetNode("Sounds/AudioStreamPlayer2D")).Play(0);
+        ((AudioStreamPlayer2D)GetNode("Sounds/Music")).Play(global.SplashAudioPosition);
 
-        Tank1Rect = (TextureRect)GetNode("GUI/Player1Label/Tank/TextureRect"); // Where selected tank's texture is displayed
-        Tank1Description = (RichTextLabel)GetNode("GUI/Player1Label/Tank/Description");// tank description
+        Tank1Rect = (TextureRect)GetNode("GUI/Player1Label/Tank/TextureRect");
+        Tank1Description = (RichTextLabel)GetNode("GUI/Player1Label/Tank/Description");
         Tank2Rect = (TextureRect)GetNode("GUI/Player2Label/Tank/TextureRect");
         Tank2Description = (RichTextLabel)GetNode("GUI/Player2Label/Tank/Description");
 
@@ -68,7 +66,7 @@ public class SelectTanks : Node
         Tank2Idx = 0;
     }
 
-    private void _OnBackButtonPressed() // Should also continue music
+    private void _OnBackButtonPressed()
     {
         global.SplashAudioPosition = ((AudioStreamPlayer2D)GetNode("Sounds/Music")).GetPlaybackPosition();
         global.GotoScene("res://scenes/SplashScreen.tscn");
@@ -76,8 +74,8 @@ public class SelectTanks : Node
 
     private void Play()
     {
-        string P1Name = ((LineEdit)GetNode("GUI/Player1Label/Name/LineEdit")).Text.Replace('$', 'S').Replace('|', 'l'),//Do not allow chars used by UdpListener
-               P2Name = ((LineEdit)GetNode("GUI/Player2Label/Name/LineEdit")).Text.Replace('$', 'S').Replace('|', 'l');
+        string P1Name = ((LineEdit)GetNode("GUI/Player1Label/Name/LineEdit")).Text,
+               P2Name = ((LineEdit)GetNode("GUI/Player2Label/Name/LineEdit")).Text;
         global.SelectedTanks = new Dictionary<string, Node>();
         if(P1Name.ToLower() == P2Name.ToLower() && P1Name != "")
         {
@@ -86,10 +84,10 @@ public class SelectTanks : Node
         }
         if(global.NumberOfPlayers > 0)
         {
-            global.SelectedTanks.Add(((P1Name != "") ? P1Name : "Player 1"), global.TanksList[Tank1Idx].Instance()); // Default controls of BaseTank: arrows, M
+            global.SelectedTanks.Add(((P1Name != "") ? P1Name : "Player 1"), global.TanksList[Tank1Idx].Instance());
             if(global.NumberOfPlayers == 2)
             {
-                Node NewTank = global.TanksList[Tank2Idx].Instance(); // set P2 controls
+                Node NewTank = global.TanksList[Tank2Idx].Instance();
                 NewTank.Set("UP", KeyList.W);
                 NewTank.Set("DOWN", KeyList.S);
                 NewTank.Set("LEFT", KeyList.A);

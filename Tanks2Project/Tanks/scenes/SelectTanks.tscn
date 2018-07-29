@@ -222,7 +222,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1030, 501 ), Vector2( 828, 501 ) ]
 }
 
-[node name="SelectTanks" type="Node"]
+[node name="SelectTanks" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -390,9 +390,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -387.0
+margin_left = -487.0
 margin_top = -190.0
-margin_right = 189.0
+margin_right = 912.0
 margin_bottom = 19.0
 rect_scale = Vector2( 0.2, 0.2 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -403,7 +403,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Player 1"
+text = "Player 1 - arrows, M"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -597,9 +597,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 49.0
+margin_left = -51.0
 margin_top = -190.0
-margin_right = 654.0
+margin_right = 1255.0
 margin_bottom = 19.0
 rect_scale = Vector2( 0.2, 0.2 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -610,7 +610,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Player 2"
+text = "Player 2 - W,A,S,D,Q"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

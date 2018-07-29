@@ -1,5 +1,3 @@
-//The scores panel on the left side of the screen
-
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -27,7 +25,7 @@ public class Scores : Control
         PlayerLabels.Clear();
     }
 
-    public void SetNoPlayers() // Show "No Players" text
+    public void SetNoPlayers()
     {
         Empty();
         PlayerLabels.Add("", (Label)(ScoreLabel.Instance()));
