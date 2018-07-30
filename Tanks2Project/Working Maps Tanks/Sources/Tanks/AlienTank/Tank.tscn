@@ -1,0 +1,235 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Tanks/AlienTank/Tank.gd" type="Script" id=1]
+[ext_resource path="res://Tanks/AlienTank/Shoot.wav" type="AudioStream" id=2]
+[ext_resource path="res://Tanks/AlienTank/Move.wav" type="AudioStream" id=3]
+[ext_resource path="res://Tanks/AlienTank/Alarm.wav" type="AudioStream" id=4]
+[ext_resource path="res://Tanks/AlienTank/icon.png" type="Texture" id=5]
+[ext_resource path="res://Tanks/AlienTank/tank.png" type="Texture" id=6]
+[ext_resource path="res://Tanks/AlienTank/LightMask.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "Destroy"
+length = 2.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Light2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 0.8, 1.1, 1.4, 1.7, 2, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.01, 1.0, 0.01, 1.0, 0.01, 1.0, 0.01 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sounds/Alarm:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4, 0.5, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[node name="Tank" type="KinematicBody2D" index="0"]
+
+position = Vector2( 544.794, 391.518 )
+scale = Vector2( 1.36678, 1.40962 )
+z_index = -1
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+UP = 16777232
+DOWN = 16777234
+LEFT = 16777231
+RIGHT = 16777233
+SHOOT = 77
+rotation_speed = 5
+movement_speed = 130
+go_back_speed_multiplier = 0.5
+initial_HP = 10
+
+[node name="Sounds" type="Node" parent="." index="0"]
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+
+position = Vector2( 542.658, 319.21 )
+stream = ExtResource( 2 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Move" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+
+position = Vector2( 546.341, 302.022 )
+stream = ExtResource( 3 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Alarm" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+
+position = Vector2( 547.569, 313.072 )
+stream = ExtResource( 4 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Destroy = SubResource( 1 )
+blend_times = [  ]
+
+[node name="ShootPosition" type="Position2D" parent="." index="2"]
+
+position = Vector2( 0.193268, -15.885 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ShootPosition2" type="Position2D" parent="." index="3"]
+
+position = Vector2( 11.244, -1.88312 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ShootPosition3" type="Position2D" parent="." index="4"]
+
+position = Vector2( -10.6506, -1.5202 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ShootPosition4" type="Position2D" parent="." index="5"]
+
+position = Vector2( 0.203247, 12.5722 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Description" type="RichTextLabel" parent="." index="6"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "A sturdy sci-fi tank shooting in 4 directions."
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( -3.10843, -14.819, -1.7428, -14.6986, -1.7428, -13.8961, 2.0231, -13.8159, 1.94031, -14.8591, 3.30594, -14.8591, 3.38873, -13.4948, 2.35416, -13.5751, 2.35416, -12.6522, 1.2782, -12.572, 1.31958, -9.56256, 2.39554, -9.60269, 2.27139, -10.7663, 4.87851, -10.6861, 6.90631, -8.3989, 7.19598, -4.18573, 9.18237, -3.54373, 9.26514, 0.308319, 7.23734, 1.03055, 7.32013, 5.40424, 4.75436, 7.41049, 2.47827, 7.41049, 2.35416, 6.1265, 1.69202, 6.1265, 1.52649, 9.17603, 2.31281, 9.29642, 2.47827, 10.3397, 3.4715, 10.4199, 3.63702, 11.6638, 1.98172, 11.5836, 1.98172, 10.6205, -1.49445, 10.7008, -1.53586, 11.6237, -3.10843, 11.4632, -3.10843, 10.4199, -2.03244, 10.4199, -2.03244, 9.25626, -0.915131, 9.21616, -1.03928, 6.28699, -1.99109, 6.20673, -1.94968, 7.29013, -4.8465, 7.49075, -6.83289, 5.04309, -6.91568, 1.11081, -9.10895, 0.468781, -9.06757, -3.82462, -6.83289, -4.34625, -6.91568, -8.3989, -4.8465, -10.6459, -1.99109, -10.5657, -1.86694, -9.76318, -0.749603, -9.68292, -1.08063, -12.2911, -2.15662, -12.3312, -2.11523, -13.6955, -3.06702, -13.6553 )
+
+[node name="Sprite" type="Sprite" parent="." index="8"]
+
+visible = false
+position = Vector2( 0.703522, -0.0401306 )
+texture = ExtResource( 5 )
+vframes = 3
+hframes = 4
+_sections_unfolded = [ "Animation" ]
+
+[node name="Sprite2" type="Sprite" parent="." index="9"]
+
+position = Vector2( 0.703522, -0.0401306 )
+texture = ExtResource( 6 )
+vframes = 3
+hframes = 4
+_sections_unfolded = [ "Animation" ]
+
+[node name="Light2D" type="Light2D" parent="." index="10"]
+
+enabled = false
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.01
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/T90_explode.wav-37b3010e22f904475af7e2fd8959596a.sample"
+
+[deps]
+
+source_file="res://Tanks/T90/Sounds/T90_explode.wav"
+dest_files=[ "res://.import/T90_explode.wav-37b3010e22f904475af7e2fd8959596a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

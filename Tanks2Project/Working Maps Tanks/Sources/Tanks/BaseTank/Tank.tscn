@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Tanks/BaseTank/Tank.gd" type="Script" id=1]
+[ext_resource path="res://Tanks/BaseTank/tank.png" type="Texture" id=2]
+
+[node name="Tank" type="KinematicBody2D"]
+
+position = Vector2( 544.794, 391.518 )
+scale = Vector2( 1.36678, 1.40962 )
+z_index = -1
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+UP = 16777232
+DOWN = 16777234
+LEFT = 16777231
+RIGHT = 16777233
+SHOOT = 77
+rotation_speed = 5
+movement_speed = 130
+go_back_speed_multiplier = 0.5
+initial_HP = 1
+
+[node name="ShootPosition" type="Position2D" parent="." index="0"]
+
+position = Vector2( 0, -15.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -6.02456, -7.66733, -6.08112, 8.79211, 5.90994, 8.79211, 5.90994, -7.78045, 1.89407, -7.78045, 1.89407, -13.8325, -1.839, -13.776, -1.839, -7.95014 )
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+
+texture = ExtResource( 2 )
+
+[node name="Description" type="RichTextLabel" parent="." index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "The green tank from the previous game."
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+

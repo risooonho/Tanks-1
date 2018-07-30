@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tanks/AlienTank/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Tanks/AlienTank/bullet.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 7.0
+
+[node name="Bullet" type="KinematicBody2D"]
+
+scale = Vector2( 0.35, 0.35 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material" ]
+velocity = Vector2( 0, 0 )
+speed = 500
+damage = 1
+expiration_seconds = 3
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite5" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0, -10 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite2" type="Sprite" parent="." index="2"]
+
+position = Vector2( -10, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite3" type="Sprite" parent="." index="3"]
+
+position = Vector2( 0, 10 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite4" type="Sprite" parent="." index="4"]
+
+position = Vector2( 10, 0 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+
+shape = SubResource( 1 )
+
+
