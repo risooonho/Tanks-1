@@ -35,4 +35,10 @@ https://www.fontmagic.com/revengeance.font
 o	https://www.youtube.com/watch?v=GUej1qNZ2Wg   
 o	https://www.youtube.com/watch?v=owF0SlHMRNE   
 o	https://www.youtube.com/watch?v=c-BKVzTLqlc   
-*Imaginile și sunetele folosite la crearea tancurilor/hărților nu au fost incluse.   
+*Imaginile și sunetele folosite la crearea tancurilor/hărților nu au fost incluse.*   
+**Rolul coechipierilor în crearea proiectului:**   
+Borza Cătălin:   
+- jocul   
+- aplicația mobilă   
+Horju Rareș:
+- creare de tancuri, proiectile, hărți
