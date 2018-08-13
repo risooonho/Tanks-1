@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bullet_tank.wav-4aed50973272683496f304f6d1ddfe65.sample"
+
+[deps]
+
+source_file="res://Tanks/T90/Sounds/bullet_tank.wav"
+dest_files=[ "res://.import/bullet_tank.wav-4aed50973272683496f304f6d1ddfe65.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

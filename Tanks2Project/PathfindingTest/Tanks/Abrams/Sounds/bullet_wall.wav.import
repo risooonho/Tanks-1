@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bullet_wall.wav-a605cbe7fe762817ead1c338698b6934.sample"
+
+[deps]
+
+source_file="res://Tanks/Abrams/Sounds/bullet_wall.wav"
+dest_files=[ "res://.import/bullet_wall.wav-a605cbe7fe762817ead1c338698b6934.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
