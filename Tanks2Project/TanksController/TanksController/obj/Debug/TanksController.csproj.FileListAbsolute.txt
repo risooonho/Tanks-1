@@ -1,7 +1,5 @@
 C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\TanksController.dll
 C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\TanksController.pdb
-C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\FlatRedBallAndroidTemplate.FlatRedBallAndroidTemplate.apk
-C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\FlatRedBallAndroidTemplate.FlatRedBallAndroidTemplate-Signed.apk
 C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\FlatRedBall.Forms.Android.dll
 C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\FlatRedBallAndroid.dll
 C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\GumCoreAndroid.dll
@@ -18,7 +16,6 @@ C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\FlatRedBallAndr
 C:\Users\catab\Desktop\TanksController\TanksController\obj\Debug\TanksController.csproj.CoreCompileInputs.cache
 C:\Users\catab\Desktop\TanksController\TanksController\obj\Debug\TanksController.dll
 C:\Users\catab\Desktop\TanksController\TanksController\obj\Debug\TanksController.pdb
-C:\Users\catab\Desktop\TanksController\TanksController\obj\Debug\android\bin\FlatRedBallAndroidTemplate.FlatRedBallAndroidTemplate.apk
 C:\Users\catab\Desktop\TanksController\TanksController\obj\Debug\res\drawable\icon.png
 C:\Users\catab\Desktop\TanksController\TanksController\obj\Debug\res\drawable\splash.png
 C:\Users\catab\Desktop\TanksController\TanksController\obj\Debug\res\values\strings.xml
@@ -84,7 +81,10 @@ C:\Users\catab\Desktop\Tanks2Project\TanksController\TanksController\obj\Debug\a
 C:\Users\catab\Desktop\Tanks2Project\TanksController\TanksController\obj\Debug\android\assets\GumCoreAndroid.dll.mdb
 C:\Users\catab\Desktop\Tanks2Project\TanksController\TanksController\obj\Debug\android\assets\StateInterpolation.Android.dll.mdb
 C:\Users\catab\Desktop\Tanks2Project\TanksController\TanksController\obj\Debug\android\assets\TanksController.dll.mdb
-C:\Users\catab\Desktop\Tanks2Project\TanksController\TanksController\bin\Debug\TanksController.dll
+C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\tanks.tankscontroller.apk
+C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\tanks.tankscontroller-Signed.apk
+C:\Users\catab\Desktop\TanksController\TanksController\obj\Debug\android\bin\tanks.tankscontroller.apk
+C:\Users\catab\Desktop\TanksController\TanksController\bin\Debug\TanksController.dll
 bin\Debug\FlatRedBall.Forms.Android.dll.mdb
 bin\Debug\FlatRedBallAndroid.dll.mdb
 bin\Debug\GumCoreAndroid.dll.mdb
