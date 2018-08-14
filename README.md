@@ -1,5 +1,5 @@
 # Tanks
-Un joc top-down, multiplayer local, creat folosind Godot Engine. Scopul jocului este de a-ți distruge inamicii conducând un tanc și de a rămâne ultimul în viață. Jocul acceptă maxim 2 jucători care folosesc tastatura, pentru a adăuga mai mulți fiind nevoie de o rețea Wi-Fi, telefoane cu Android și aplicația TanksController.În plus, se pot adăuga jucători controlați de calculator prin meniul de pauză. Jocul poate, de asemenea, fi modificat (adăugând tancuri, hărți, gloanțe) cu ajutorul editorului Godot, un model și script pentru tancul de bază fiind disponibile (în proiectul din folderul BaseTank).
+Un joc top-down, multiplayer local, creat folosind Godot Engine. Scopul jocului este de a-ți distruge inamicii conducând un tanc și de a rămâne ultimul în viață. Jocul acceptă maxim 2 jucători care folosesc tastatura, pentru a adăuga mai mulți fiind nevoie de o rețea Wi-Fi, telefoane cu Android și aplicația TanksController.În plus, se pot adăuga jucători controlați de calculator prin meniul de pauză. Jocul poate, de asemenea, fi modificat (adăugând tancuri, hărți, gloanțe) cu ajutorul editorului Godot, un model și script pentru tancul de bază fiind disponibile (în proiectul din folderul BaseTank). Jocul este în limba engleză.
 
 **Instalare**: 
 
