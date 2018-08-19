@@ -13,7 +13,7 @@ export var rotation_speed = 5
 export var movement_speed = 130
 export var go_back_speed_multiplier = 0.5
 export var health = 1
-var HP = health setget set_HP
+var HP setget set_HP
 var velocity = Vector2(0, 0)
 var rot = 0
 var bullet_scene
@@ -41,6 +41,8 @@ var time_since_shoot = minimum_shoot_cooldown
 var RayCast
 var can_see_tank = false
 
+#var NavPoint = preload("res://NavPoint.tscn")
+
 export var player_name_label = preload("res://Tanks/BaseTank/PlayerNameText.tscn")
 export var label_position = Vector2(0, 20)
 
@@ -60,6 +62,7 @@ func set_player(value):
 	player_name = value
 
 func _ready():
+	HP = health
 	connect("destroy", self, "on_destroy")
 	var bullet_path = get_script().get_path().get_base_dir()
 	bullet_scene = load(bullet_path + "/Bullet.tscn")
@@ -126,8 +129,15 @@ func AI_control(delta):
 			nav = get_tree().get_nodes_in_group("Maps")[0].get_node("Navigation2D")
 			path = nav.get_simple_path(global_position, current_target.global_position, false)
 			time_since_update = 0
+			#for p in get_tree().get_nodes_in_group("Test"):
+				#p.free()
+			#for p in path:
+				#var np = NavPoint.instance()
+				#np.global_position = p
+				#np.add_to_group("Test")
+				#get_parent().add_child(np)
 			
-		if path.size() > 1:
+		if path.size() > 0:
 			var vect_to_target = (path[0] - global_position).normalized()
 			var straight = Vector2(0, -1).rotated(rot)
 			AI_perform_rotation(straight, vect_to_target, delta)

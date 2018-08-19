@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Tanks/BaseTank/Tank.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Maps/NightMap/Map.tscn" type="PackedScene" id=2]
 
 [node name="Node" type="Node" index="0"]
 
@@ -14,5 +15,8 @@ DOWN = 16777233
 LEFT = 16777230
 RIGHT = 16777232
 SHOOT = 76
+AI = true
+
+[node name="Map" parent="." index="2" instance=ExtResource( 2 )]
 
 
