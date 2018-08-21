@@ -11,14 +11,11 @@ func bounce(collision):
 func _ready():
 	add_to_group("Bullets")
 
-func explode():
-	queue_free()
-
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision != null:
 		if collision.collider.is_in_group("Tanks"):
-			explode()
+			queue_free()
 			collision.collider.call("take_hit", damage)
 		else:
 			bounce(collision)

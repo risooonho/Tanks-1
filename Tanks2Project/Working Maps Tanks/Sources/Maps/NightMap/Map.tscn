@@ -1,0 +1,345 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Maps/NightMap/Map.png" type="Texture" id=1]
+[ext_resource path="res://Maps/NightMap/Map.gd" type="Script" id=2]
+[ext_resource path="res://Maps/NightMap/StreetLamp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Maps/NightMap/Tree.tscn" type="PackedScene" id=4]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( 511.814, -299.526, 511.417, 300.268, -511.013, 299.871, -512.602, -300.32 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( -512.602, -300.32, -511.013, 299.871, 511.417, 300.268, 511.814, -299.526 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 0.383682, 314.891 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 513.943, 0.629959 )
+
+[node name="Map" type="Sprite" index="0" groups=[
+"Maps",
+]]
+
+position = Vector2( 512, 300 )
+z_index = -15
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="0"]
+
+color = Color( 0.547485, 0.591002, 0.761719, 1 )
+
+[node name="StreetLamps" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="StreetLamp" parent="StreetLamps" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( -501.669, -6.31467 )
+
+[node name="StreetLamp2" parent="StreetLamps" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( -289.087, -6.31467 )
+
+[node name="StreetLamp3" parent="StreetLamps" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( -111.636, -5.99103 )
+
+[node name="StreetLamp4" parent="StreetLamps" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 70.5287, -5.95117 )
+
+[node name="StreetLamp5" parent="StreetLamps" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 268.101, -6.09204 )
+
+[node name="StreetLamp6" parent="StreetLamps" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 449.844, -5.99106 )
+
+[node name="StreetLamp7" parent="StreetLamps" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 504.521, -89.7864 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp8" parent="StreetLamps" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 329.569, -89.7864 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp9" parent="StreetLamps" index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 221.51, -89.7864 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp10" parent="StreetLamps" index="9" instance=ExtResource( 3 )]
+
+position = Vector2( -5.63312, -89.7864 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp11" parent="StreetLamps" index="10" instance=ExtResource( 3 )]
+
+position = Vector2( -210.724, -89.7864 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp12" parent="StreetLamps" index="11" instance=ExtResource( 3 )]
+
+position = Vector2( -403.318, -89.7864 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp13" parent="StreetLamps" index="12" instance=ExtResource( 3 )]
+
+position = Vector2( -368.392, -219.317 )
+rotation = 0.536595
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp14" parent="StreetLamps" index="13" instance=ExtResource( 3 )]
+
+position = Vector2( -490.748, -294.138 )
+rotation = 0.536595
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp15" parent="StreetLamps" index="14" instance=ExtResource( 3 )]
+
+position = Vector2( -90.6774, -265.818 )
+rotation = 1.5708
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp16" parent="StreetLamps" index="15" instance=ExtResource( 3 )]
+
+position = Vector2( -90.6774, -141.86 )
+rotation = 1.5708
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp17" parent="StreetLamps" index="16" instance=ExtResource( 3 )]
+
+position = Vector2( 130.323, -143.32 )
+rotation = 2.54027
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp18" parent="StreetLamps" index="17" instance=ExtResource( 3 )]
+
+position = Vector2( 271.645, -243.181 )
+rotation = 2.54027
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp19" parent="StreetLamps" index="18" instance=ExtResource( 3 )]
+
+position = Vector2( -322.125, 80.1379 )
+rotation = 0.636833
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp20" parent="StreetLamps" index="19" instance=ExtResource( 3 )]
+
+position = Vector2( -355.113, 204.517 )
+rotation = 2.49077
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp21" parent="StreetLamps" index="20" instance=ExtResource( 3 )]
+
+position = Vector2( -182.633, 198.1 )
+rotation = 5.67426
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp22" parent="StreetLamps" index="21" instance=ExtResource( 3 )]
+
+position = Vector2( -24.6835, 121.459 )
+rotation = -1.5708
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp23" parent="StreetLamps" index="22" instance=ExtResource( 3 )]
+
+position = Vector2( 118.414, 187.192 )
+rotation = -0.313007
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StreetLamp24" parent="StreetLamps" index="23" instance=ExtResource( 3 )]
+
+position = Vector2( 285.385, 124.51 )
+rotation = -0.313007
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Trees" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Tree" parent="Trees" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( -453.77, -173.648 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree2" parent="Trees" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( -150.177, -242.746 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree3" parent="Trees" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( -274.408, -180.998 )
+rotation = 3.14159
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree4" parent="Trees" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 35.0658, -189.084 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree5" parent="Trees" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 160.767, -255.243 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree6" parent="Trees" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 462.889, 54.231 )
+rotation = 4.71239
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree7" parent="Trees" index="6" instance=ExtResource( 4 )]
+
+position = Vector2( -471.413, 187.283 )
+rotation = 4.71239
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree8" parent="Trees" index="7" instance=ExtResource( 4 )]
+
+position = Vector2( -468.472, 72.6083 )
+rotation = 3.14159
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree9" parent="Trees" index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 57.1186, 49.8204 )
+rotation = 3.14159
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree10" parent="Trees" index="9" instance=ExtResource( 4 )]
+
+position = Vector2( -153.853, 258.586 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree11" parent="Trees" index="10" instance=ExtResource( 4 )]
+
+position = Vector2( 71.0854, 258.586 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree12" parent="Trees" index="11" instance=ExtResource( 4 )]
+
+position = Vector2( 304.845, 197.574 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree13" parent="Trees" index="12" instance=ExtResource( 4 )]
+
+position = Vector2( 186.495, 224.772 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Tree14" parent="Trees" index="13" instance=ExtResource( 4 )]
+
+position = Vector2( 306.162, -135.339 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Navigation2D" type="Navigation2D" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Walls" type="Node2D" parent="." index="4"]
+
+[node name="WallLeft" type="StaticBody2D" parent="Walls" index="0"]
+
+position = Vector2( -518.035, -298.727 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft" index="0"]
+
+position = Vector2( 5.66696, 299.355 )
+shape = SubResource( 2 )
+
+[node name="WallRight" type="StaticBody2D" parent="Walls" index="1"]
+
+position = Vector2( 506.698, -298.727 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight" index="0"]
+
+position = Vector2( 5.66696, 299.355 )
+shape = SubResource( 2 )
+
+[node name="WallUp" type="StaticBody2D" parent="Walls" index="2"]
+
+position = Vector2( 0, -303.701 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallUp" index="0"]
+
+position = Vector2( 0, 3.1326 )
+shape = SubResource( 3 )
+
+[node name="WallDown" type="StaticBody2D" parent="Walls" index="3"]
+
+position = Vector2( 0, 299.235 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallDown" index="0"]
+
+position = Vector2( 0, 1.50934 )
+shape = SubResource( 3 )
+
+

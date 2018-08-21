@@ -5,10 +5,6 @@ var pos_left
 var pos_right
 var respawned = false
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 func _ready():
 	pos_down = get_node("ShootPosition4")
 	pos_left = get_node("ShootPosition3")

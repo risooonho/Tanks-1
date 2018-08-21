@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tanks/AlienTank/Tank.gd" type="Script" id=1]
-[ext_resource path="res://Tanks/AlienTank/Shoot.wav" type="AudioStream" id=2]
-[ext_resource path="res://Tanks/AlienTank/Move.wav" type="AudioStream" id=3]
-[ext_resource path="res://Tanks/AlienTank/Alarm.wav" type="AudioStream" id=4]
-[ext_resource path="res://Tanks/AlienTank/icon.png" type="Texture" id=5]
-[ext_resource path="res://Tanks/AlienTank/tank.png" type="Texture" id=6]
-[ext_resource path="res://Tanks/AlienTank/LightMask.png" type="Texture" id=7]
+[ext_resource path="res://Tanks/BaseTank/PlayerNameText.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tanks/AlienTank/Shoot.wav" type="AudioStream" id=3]
+[ext_resource path="res://Tanks/AlienTank/Move.wav" type="AudioStream" id=4]
+[ext_resource path="res://Tanks/AlienTank/Alarm.wav" type="AudioStream" id=5]
+[ext_resource path="res://Tanks/AlienTank/icon.png" type="Texture" id=6]
+[ext_resource path="res://Tanks/AlienTank/tank.png" type="Texture" id=7]
+[ext_resource path="res://Tanks/AlienTank/LightMask.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -63,7 +64,7 @@ tracks/3/keys = {
 "values": [ false, true, false ]
 }
 
-[node name="Tank" type="KinematicBody2D" index="0"]
+[node name="Tank" type="KinematicBody2D"]
 
 position = Vector2( 544.794, 391.518 )
 scale = Vector2( 1.36678, 1.40962 )
@@ -73,7 +74,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -85,14 +86,23 @@ SHOOT = 77
 rotation_speed = 5
 movement_speed = 130
 go_back_speed_multiplier = 0.5
-initial_HP = 10
+health = 10
+is_controlled_by_mobile = false
+AI = false
+seconds_between_path_updates = 1
+stop_at_distance = 100
+clear_path_points_at = 30
+minimum_shoot_cooldown = 0.5
+field_of_detection = 10000
+player_name_label = ExtResource( 2 )
+label_position = Vector2( 0, 30 )
 
 [node name="Sounds" type="Node" parent="." index="0"]
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 
 position = Vector2( 542.658, 319.21 )
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
@@ -104,7 +114,7 @@ area_mask = 1
 [node name="Move" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
 
 position = Vector2( 546.341, 302.022 )
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
@@ -116,7 +126,7 @@ area_mask = 1
 [node name="Alarm" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
 
 position = Vector2( 547.569, 313.072 )
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
@@ -186,13 +196,14 @@ override_selected_font_color = false
 
 visible = false
 build_mode = 0
-polygon = PoolVector2Array( -3.10843, -14.819, -1.7428, -14.6986, -1.7428, -13.8961, 2.0231, -13.8159, 1.94031, -14.8591, 3.30594, -14.8591, 3.38873, -13.4948, 2.35416, -13.5751, 2.35416, -12.6522, 1.2782, -12.572, 1.31958, -9.56256, 2.39554, -9.60269, 2.27139, -10.7663, 4.87851, -10.6861, 6.90631, -8.3989, 7.19598, -4.18573, 9.18237, -3.54373, 9.26514, 0.308319, 7.23734, 1.03055, 7.32013, 5.40424, 4.75436, 7.41049, 2.47827, 7.41049, 2.35416, 6.1265, 1.69202, 6.1265, 1.52649, 9.17603, 2.31281, 9.29642, 2.47827, 10.3397, 3.4715, 10.4199, 3.63702, 11.6638, 1.98172, 11.5836, 1.98172, 10.6205, -1.49445, 10.7008, -1.53586, 11.6237, -3.10843, 11.4632, -3.10843, 10.4199, -2.03244, 10.4199, -2.03244, 9.25626, -0.915131, 9.21616, -1.03928, 6.28699, -1.99109, 6.20673, -1.94968, 7.29013, -4.8465, 7.49075, -6.83289, 5.04309, -6.91568, 1.11081, -9.10895, 0.468781, -9.06757, -3.82462, -6.83289, -4.34625, -6.91568, -8.3989, -4.8465, -10.6459, -1.99109, -10.5657, -1.86694, -9.76318, -0.749603, -9.68292, -1.08063, -12.2911, -2.15662, -12.3312, -2.11523, -13.6955, -3.06702, -13.6553 )
+polygon = PoolVector2Array( -2.33365, -14.2488, -1.42938, -14.1725, -1.42938, -13.3339, 2.54129, -13.2196, 2.50201, -14.2488, 3.60278, -14.0963, 3.56348, -13.1815, 2.58063, -13.1052, 2.58063, -12.1141, 1.59775, -12.1141, 1.63708, -9.2933, 2.61993, -9.21704, 2.61993, -10.2462, 5.48987, -10.1319, 7.53418, -8.03534, 7.65216, -3.34668, 9.53812, -3.20038, 9.58871, 0.792358, 7.57196, 0.808716, 7.57199, 5.79147, 5.55524, 7.79605, 2.57654, 7.81241, 2.55966, 6.79785, 1.59766, 6.80603, 1.59763, 9.79242, 2.55118, 9.80878, 2.56799, 10.7579, 3.56378, 10.8152, 3.59753, 11.7888, 2.55966, 11.7888, 2.54272, 10.8315, -1.35406, 10.8565, -1.50986, 11.8511, -2.46353, 11.7951, -2.40576, 10.8423, -1.47522, 10.7223, -1.33646, 9.83359, -0.556183, 9.83359, -0.440582, 6.77927, -1.42316, 6.77927, -1.48099, 7.81607, -4.39978, 7.76001, -6.42276, 5.77051, -6.42227, 0.846436, -8.388, 0.770172, -8.42728, -3.19421, -6.42227, -3.19421, -6.42227, -8.14972, -4.41724, -10.17, -1.39011, -10.2082, -1.42938, -9.17892, -0.48587, -9.33142, -0.525208, -12.1903, -1.58667, -12.2285, -1.46875, -13.2577, -2.45157, -13.2577 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="8"]
 
 visible = false
 position = Vector2( 0.703522, -0.0401306 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 vframes = 3
 hframes = 4
 _sections_unfolded = [ "Animation" ]
@@ -200,7 +211,7 @@ _sections_unfolded = [ "Animation" ]
 [node name="Sprite2" type="Sprite" parent="." index="9"]
 
 position = Vector2( 0.703522, -0.0401306 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 vframes = 3
 hframes = 4
 _sections_unfolded = [ "Animation" ]
@@ -209,7 +220,7 @@ _sections_unfolded = [ "Animation" ]
 
 enabled = false
 editor_only = false
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -229,6 +240,13 @@ shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="11"]
+
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, -200 )
+collision_mask = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 

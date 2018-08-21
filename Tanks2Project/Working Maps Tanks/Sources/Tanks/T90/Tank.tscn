@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Tanks/T90/T90.gd" type="Script" id=1]
-[ext_resource path="res://Tanks/T90/36866943_626587331073804_1174075206382125056_n.png" type="Texture" id=2]
-[ext_resource path="res://Tanks/Abrams/Sounds/move.wav" type="AudioStream" id=3]
-[ext_resource path="res://Tanks/T90/Sounds/fire.wav" type="AudioStream" id=4]
-[ext_resource path="res://Tanks/T90/Sounds/reload.wav" type="AudioStream" id=5]
-[ext_resource path="res://Tanks/T90/Sounds/T90_explode.wav" type="AudioStream" id=6]
+[ext_resource path="res://Tanks/BaseTank/PlayerNameText.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tanks/T90/36866943_626587331073804_1174075206382125056_n.png" type="Texture" id=3]
+[ext_resource path="res://Tanks/Abrams/Sounds/move.wav" type="AudioStream" id=4]
+[ext_resource path="res://Tanks/T90/Sounds/fire.wav" type="AudioStream" id=5]
+[ext_resource path="res://Tanks/T90/Sounds/reload.wav" type="AudioStream" id=6]
+[ext_resource path="res://Tanks/T90/Sounds/T90_explode.wav" type="AudioStream" id=7]
 
 [sub_resource type="CurveTexture" id=1]
 
@@ -114,14 +115,15 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Damping", "Initial Velocity", "Scale", "Spread" ]
 
-[node name="T90" type="KinematicBody2D"]
+[node name="T90" type="KinematicBody2D" index="0"]
 
-position = Vector2( 478.551, 181.124 )
+position = Vector2( 476.755, 247.584 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -133,21 +135,33 @@ SHOOT = 77
 rotation_speed = 5
 movement_speed = 130
 go_back_speed_multiplier = 0.5
-initial_HP = 3
+health = 3
+is_controlled_by_mobile = false
+AI = false
+seconds_between_path_updates = 1
+stop_at_distance = 100
+clear_path_points_at = 30
+minimum_shoot_cooldown = 0.5
+field_of_detection = 10000
+player_name_label = ExtResource( 2 )
+label_position = Vector2( 0, 25 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( 0, 8.52579 )
-texture = ExtResource( 2 )
+position = Vector2( 0, 4.53979 )
+texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
+position = Vector2( 0, -4.15208 )
+z_index = -1
 build_mode = 0
-polygon = PoolVector2Array( -0.858093, -9.83899, 1.89948, -9.83899, 1.77963, -0.0934448, 3.91318, 0.00814819, 3.8793, -1.31259, 8.11249, -1.27875, 7.98184, 19.6442, -7.16492, 19.3286, -7.00714, -1.81375, -3.53601, -1.34039, -3.53601, -0.078186, -1.32712, 0.0795898 )
+polygon = PoolVector2Array( -0.858093, -9.83899, 1.89948, -9.83899, 1.77963, -0.0934448, 3.91318, 0.00814819, 3.8793, -1.31259, 8.11249, -1.27875, 7.98184, 19.6442, -7.16492, 19.3286, -6.93753, -1.29364, -2.81448, -1.23558, -2.81448, -0.103195, -1.32712, 0.0795898 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="ShootPosition" type="Position2D" parent="." index="2"]
 
-position = Vector2( 0.463928, -12.1781 )
+position = Vector2( 0.463928, -16.1641 )
 
 [node name="Description" type="RichTextLabel" parent="." index="3"]
 
@@ -178,7 +192,7 @@ override_selected_font_color = false
 
 [node name="Trail" type="Particles2D" parent="." index="4"]
 
-position = Vector2( 0, 24.2542 )
+position = Vector2( 0, 19.4378 )
 rotation = 1.57217
 emitting = false
 amount = 50
@@ -204,7 +218,7 @@ _sections_unfolded = [ "Drawing", "Process Material", "Time" ]
 
 [node name="Move" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
@@ -215,7 +229,7 @@ area_mask = 1
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
@@ -226,7 +240,7 @@ area_mask = 1
 
 [node name="Reload" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -237,7 +251,7 @@ area_mask = 1
 
 [node name="Explode" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -267,6 +281,14 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Time" ]
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="7"]
+
+position = Vector2( 0, 3.65385 )
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, -200 )
+collision_mask = 1
 
 [connection signal="finished" from="Sounds/Shoot" to="." method="_on_Fire_Sound_finished"]
 
